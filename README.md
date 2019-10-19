@@ -7,7 +7,7 @@ Automate new releases for my node.js projects by:
 
 ## Release protocol
 
-Leading up to this project, my release protocol includes:
+My current release protocol includes:
 
 - git
 - a [Semantic Versioning](https://semver.org/spec/v2.0.0.html) approach
@@ -17,3 +17,5 @@ Leading up to this project, my release protocol includes:
   2. open package-lock.json, bump the version accordingly
   3. commit with message of the form `package*: v${version} ${strategy} bump for ${message} 🎉`
   4. push to remote, and start the PR process
+  5. create new tag with command of the form: `tag v${version} -m ${message}`
+  6. push new tag to remote
