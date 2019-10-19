@@ -1,0 +1,14 @@
+{
+  "name": "bump",
+  "version": "0.1.0",
+  "description": "Automate new releases for my node.js projects",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:brianzelip/bump.git"
+  },
+  "keywords": [],
+  "author": "Brian Zelip <bzelip@gmail.com> (https://zelip.me/)",
+  "license": "MIT"
+}
