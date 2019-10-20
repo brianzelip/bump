@@ -69,9 +69,18 @@ function updatePackageFiles() {
   );
 }
 
-updatePackageFiles();
+function addPackages() {
+  c_p.execSync(`git add package*`, { encoding: 'utf8' });
+}
 
-console.log('oldVersionAsArray', oldVersionAsArray);
-console.log(rcCommit);
+function commitBump() {
+  c_p.execSync(`git commit -m "${rcCommit}"`, { encoding: 'utf8' });
+}
 
-console.log(c_p.execSync('ls -a', { encoding: 'utf8' }));
+function bump() {
+  updatePackageFiles();
+  addPackages();
+  commitBump();
+}
+
+bump();
