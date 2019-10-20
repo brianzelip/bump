@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { exec } = require('child_process');
 
 const strategy = process.argv[2];
 const message = process.argv[3];
@@ -48,3 +49,14 @@ const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for $
 
 console.log('oldVersionAsArray', oldVersionAsArray);
 console.log(rcCommit);
+
+exec('ls', (err, stdout, stderr) => {
+  if (err) {
+    // node couldn't execute the command
+    return;
+  }
+
+  // the *entire* stdout and stderr (buffered)
+  console.log(`stdout: ${stdout}`);
+  console.log(`stderr: ${stderr}`);
+});
