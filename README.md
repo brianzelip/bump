@@ -1,11 +1,11 @@
-# Bump
+# Bump 🍑
 
 Automate new releases for my node.js projects by:
 
 - bumping the version property in package\*json
-- committing with message and pushing
+- committing with appropriate message
 
-## Release protocol
+## My release protocol
 
 My current release protocol includes:
 
@@ -19,3 +19,18 @@ My current release protocol includes:
   4. push to remote, and start the PR process
   5. create new tag with command of the form: `tag v${version} -m ${message}`
   6. push new tag to remote
+
+## API
+
+### Basic usage
+
+```bash
+> node $PATH_TO_bump.js [major || minor || patch] "$MSG"
+```
+
+### Assumptions:
+
+- your project is git tracked
+- you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
+- your current working directory is the root diretory of the project you wish to bump
+- the root directory of the project you wish to bump includes both package.json and package-lock.json files
