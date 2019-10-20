@@ -6,42 +6,49 @@ const message = process.argv[3];
 const cwd = process.cwd();
 const pathToPackage = path.join(cwd, 'package.json');
 
-const versionAsString = JSON.parse(fs.readFileSync(pathToPackage)).version;
+const oldVersionAsString = JSON.parse(fs.readFileSync(pathToPackage)).version;
 
-const version = {
-  major: Number(versionAsString.split('.')[0]),
-  minor: Number(versionAsString.split('.')[1]),
-  patch: Number(versionAsString.split('.')[2])
-};
+function oldVersionAsArray() {
+  const major = Number(oldVersionAsString.split('.')[0]);
+  const minor = Number(oldVersionAsString.split('.')[1]);
+  const patch = Number(oldVersionAsString.split('.')[2]);
 
-const newVersionAsString = () => {
-  const [major, minor, patch] = [version.major, version.minor, version.patch];
+  return [major, minor, patch];
+}
 
-  const newVersion = {
-    major: bump('major') ? major + 1 : major,
-    minor: bump('minor') ? minor + 1 : minor,
-    patch: bump('patch') ? patch + 1 : patch
-  };
+const newVersionAsArray = strategyArray().map((action, index) => {
+  return transform(action, oldVersionAsArray()[index]);
+});
 
-  return `${newVersion.major}.${newVersion.minor}.${newVersion.patch}`;
-};
-
-const bump = _strategy => {
-  if (_strategy == 'major' && (strategy === 'm' || strategy === 'major')) {
-    return true;
-  }
-  if (_strategy == 'minor' && (strategy === 'n' || strategy === 'minor')) {
-    return true;
-  }
-  if (_strategy == 'patch' && (strategy === 'p' || strategy === 'patch')) {
-    return true;
-  }
-  return false;
-};
+const newVersionAsString = newVersionAsArray.join('.');
 
 const filesChanged = 'package*';
 const woohoo = '🎉';
 
-const rcCommit = `${filesChanged}: v${newVersionAsString()} Bump ${strategy} for ${message} ${woohoo}`;
+const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${woohoo}`;
 
+function strategyArray() {
+  if (strategy === 'm' || strategy === 'major') {
+    return ['increase', 'reset', 'reset'];
+  }
+  if (strategy === 'n' || strategy === 'minor') {
+    return ['same', 'increase', 'reset'];
+  }
+  if (strategy === 'p' || strategy === 'patch') {
+    return ['same', 'same', 'increase'];
+  }
+  return undefined;
+}
+
+function transform(action, num) {
+  return action === 'reset'
+    ? 0
+    : action === 'increase'
+    ? num + 1
+    : action === 'same'
+    ? num
+    : undefined;
+}
+
+console.log('oldVersionAsArray()', oldVersionAsArray());
 console.log(rcCommit);
