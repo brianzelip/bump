@@ -8,24 +8,9 @@ const pathToPackage = path.join(cwd, 'package.json');
 
 const oldVersionAsString = JSON.parse(fs.readFileSync(pathToPackage)).version;
 
-function oldVersionAsArray() {
-  const major = Number(oldVersionAsString.split('.')[0]);
-  const minor = Number(oldVersionAsString.split('.')[1]);
-  const patch = Number(oldVersionAsString.split('.')[2]);
-
-  return [major, minor, patch];
-}
-
-const newVersionAsArray = strategyArray().map((action, index) => {
-  return transform(action, oldVersionAsArray()[index]);
-});
-
-const newVersionAsString = newVersionAsArray.join('.');
-
-const filesChanged = 'package*';
-const woohoo = '🎉';
-
-const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${woohoo}`;
+const oldVersionAsArray = oldVersionAsString
+  .split('.')
+  .map(number => Number(number));
 
 function strategyArray() {
   if (strategy === 'm' || strategy === 'major') {
@@ -50,5 +35,16 @@ function transform(action, num) {
     : undefined;
 }
 
-console.log('oldVersionAsArray()', oldVersionAsArray());
+const newVersionAsArray = strategyArray().map((action, index) => {
+  return transform(action, oldVersionAsArray[index]);
+});
+
+const newVersionAsString = newVersionAsArray.join('.');
+
+const filesChanged = 'package*';
+const woohoo = '🎉';
+
+const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${woohoo}`;
+
+console.log('oldVersionAsArray', oldVersionAsArray);
 console.log(rcCommit);
