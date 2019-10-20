@@ -1,5 +1,6 @@
 const fs = require('fs');
 const path = require('path');
+const { EOL } = require('os');
 const c_p = require('child_process');
 
 const strategy = process.argv[2];
@@ -58,10 +59,13 @@ newPackageJson.version = newVersionAsString;
 newPackageLockJson.version = newVersionAsString;
 
 function updatePackageFiles() {
-  fs.writeFileSync(pathToPackage, JSON.stringify(newPackageJson, null, 2));
+  fs.writeFileSync(
+    pathToPackage,
+    `${JSON.stringify(newPackageJson, null, 2)}${EOL}`
+  );
   fs.writeFileSync(
     pathToPackageLock,
-    JSON.stringify(newPackageLockJson, null, 2)
+    `${JSON.stringify(newPackageLockJson, null, 2)}${EOL}`
   );
 }
 
