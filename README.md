@@ -34,3 +34,11 @@ My current release protocol includes:
 - you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 - your current working directory is the root diretory of the project you wish to bump
 - the root directory of the project you wish to bump includes both package.json and package-lock.json files
+
+## References
+
+1. [How do I prompt users for input from a command-line script?](https://nodejs.org/en/knowledge/command-line/how-to-prompt-for-command-line-input/)
+2. [Execute a command line binary with Node.js](https://stackoverflow.com/questions/20643470/execute-a-command-line-binary-with-node-js#20643568)
+3. [node.child_process.exec code examples](https://nodejs.org/docs/v8.1.4/api/child_process.html#child_process_child_process_exec_command_options_callback)
+4. [How to append to New Line in Node.js](https://stackoverflow.com/a/32658744/2145103)
+5. [node.os.EOL](https://nodejs.org/api/os.html#os_os_eol)
