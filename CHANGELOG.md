@@ -13,8 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - description: Prep for publishing module:
 
   - [x] update commit message if major bump (add 🚢 to msg)
-  - [] update README w/ mvp docs
-    - [] Install
+  - [x] update README w/ mvp docs
+    - [x] Install
     - [x] Use
   - [x] update README w/ references
   - [] published on npm
