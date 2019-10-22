@@ -2,13 +2,18 @@
   "name": "@bzelip/bump",
   "version": "0.2.1",
   "description": "Automate new releases for my node.js projects",
-  "main": "index.js",
-  "scripts": {},
+  "main": "bump.js",
   "repository": {
     "type": "git",
-    "url": "git@github.com:brianzelip/bump.git"
+    "url": "https://github.com/brianzelip/bump.git"
   },
-  "keywords": [],
-  "author": "Brian Zelip <bzelip@gmail.com> (https://zelip.me/)",
+  "bugs": "https://github.com/brianzelip/bump/issues",
+  "keywords": [
+    "tooling"
+  ],
+  "author": {
+    "name": "Brian Zelip",
+    "url": "https://zelip.me/"
+  },
   "license": "MIT"
 }
