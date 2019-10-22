@@ -12,9 +12,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - branch: master
 - description: Ship it:
 
-  - update commit message if major bump (add 🚢 to msg)
-  - update README w/ mvp docs
-  - update README w/ references
+  - [] update commit message if major bump (add 🚢 to msg)
+  - [] update README w/ mvp docs
+    - [] Install
+    - [x] Use
+  - [x] update README w/ references
+  - [] published on npm
 
 ### Updated
 
