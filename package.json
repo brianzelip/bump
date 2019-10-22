@@ -1,5 +1,5 @@
 {
-  "name": "bump",
+  "name": "@bzelip/bump",
   "version": "0.2.1",
   "description": "Automate new releases for my node.js projects",
   "main": "index.js",
