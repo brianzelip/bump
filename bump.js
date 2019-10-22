@@ -18,6 +18,10 @@ const oldVersionAsArray = oldVersionAsString
   .split('.')
   .map(number => Number(number));
 
+function isMajor() {
+  return strategy === 'm' || strategy === 'major';
+}
+
 function strategyArray() {
   if (strategy === 'm' || strategy === 'major') {
     return ['increase', 'reset', 'reset'];
@@ -49,8 +53,11 @@ const newVersionAsString = newVersionAsArray.join('.');
 
 const filesChanged = 'package*';
 const woohoo = '🎉';
+const shipped = '🚢';
 
-const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${woohoo}`;
+const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${
+  isMajor() ? `${shipped} ${woohoo}` : woohoo
+}`;
 
 const newPackageJson = oldPackageJson;
 const newPackageLockJson = oldPackageLockJson;
