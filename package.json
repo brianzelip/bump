@@ -1,6 +1,6 @@
 {
   "name": "@bzelip/bump",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "description": "Automate new releases for my node.js projects",
   "main": "./bump.js",
   "bin": "./bump.js",
