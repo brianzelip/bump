@@ -5,9 +5,9 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [0.3.0] - 2019-10-22
+## 1.1. [0.3.0] - 2019-10-22
 
-### Meta
+### 1.1.1. Meta
 
 - branch: master
 - description: Prep for publishing module:
@@ -17,44 +17,45 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [x] Install
     - [x] Use
   - [x] update README w/ references
-  - [] published on npm
+  - [x] published on npm
     - [x] rename module with scope
     - [x] update metadata (author, keywords, bugs, repository)
+    - [x] use `npm publish --access public`
 
-### Updated
+### 1.1.2. Updated
 
 - changelog: Add notes on references that helped me reach v1.0.0
 
-## [0.2.1] - 2019-10-20
-
-### Meta
-
-- branch: master
-- description: Add changelog.md
-
-### Added
-
-- CHANGELOG.md
-
-## 1.1. [0.2.0] - 2019-10-20
-
-### 1.1.1. Meta
-
-- branch: master
-- description: Write the basic functionality for bumping package file versions and committing with an appropriate message
-
-### 1.1.2. Added
-
-- bump.js
-
-## 1.2. [0.1.0] - 2019-10-19
+## 1.2. [0.2.1] - 2019-10-20
 
 ### 1.2.1. Meta
 
 - branch: master
-- description: start project to create an automated flow for creating new releases for my node.js projects
+- description: Add changelog.md
 
 ### 1.2.2. Added
+
+- CHANGELOG.md
+
+## 1.3. [0.2.0] - 2019-10-20
+
+### 1.3.1. Meta
+
+- branch: master
+- description: Write the basic functionality for bumping package file versions and committing with an appropriate message
+
+### 1.3.2. Added
+
+- bump.js
+
+## 1.4. [0.1.0] - 2019-10-19
+
+### 1.4.1. Meta
+
+- branch: master
+- description: start project to create an automated flow for creating new releases for my node.js projects
+
+### 1.4.2. Added
 
 - .gitignore
 - LICENSE
