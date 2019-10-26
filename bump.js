@@ -89,13 +89,11 @@ function commitBump() {
 }
 
 function confirm() {
-  console.log(chalk.rgb(255, 229, 180)`
-    🍑  Successfully ${chalk.bold(strategy)} bumped version to ${chalk.bold(
-    newVersionAsString
-  )} with the commit message:
-    
-    ${rcCommit}
-  `);
+  console.log(chalk`
+{rgb(237, 112, 50) 🍑 : Successfully {underline ${strategy}} bumped version to {underline ${newVersionAsString}} with the commit message:
+
+"${rcCommit} "
+}`);
 }
 
 function bump() {
