@@ -7,12 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## 1.1. [1.0.0] - 2019-10-2
 
-### Meta
+### 1.1.1. Meta
 
 - branch: v1
 - description: Ship v1 🚢
 
-### Updated
+### 1.1.2. Updated
 
 - readme
   - [ ] add global install
@@ -24,9 +24,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - bump.js
   - [ ] add a console.log() of the generated commit message for user feedback, instead of just dropping the user off at their prompt with no evidence that anything happend until the user `git log`s or `git status`es.
 
-## 1.1. [0.3.0] - 2019-10-23
+## 1.2. [0.4.0] - 2019-10-25
 
-### 1.1.1. Meta
+### 1.2.1. Meta
+
+- branch: confirm-bump
+- description: provide feedback in the terminal to the user
+
+### 1.2.2. Added
+
+- chalk.js as a dependency
+
+### 1.2.3. Updated
+
+- bump.js:
+  - log out to the console upon an action event
+    - Add confirm() function for logging out feedback to console
+    - Add confirm() to bump()
+    - Require and use chalk.js via tagged template literal, [see their docs](https://www.npmjs.com/package/chalk#usage)
+
+## 1.3. [0.3.0] - 2019-10-23
+
+### 1.3.1. Meta
 
 - branch: master
 - description: Prep for publishing module:
@@ -41,40 +60,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [x] update metadata (author, keywords, bugs, repository)
     - [x] use `npm publish --access public`
 
-### 1.1.2. Updated
+### 1.3.2. Updated
 
 - changelog: Add notes on references that helped me reach v1.0.0
 
-## 1.2. [0.2.1] - 2019-10-20
-
-### 1.2.1. Meta
-
-- branch: master
-- description: Add changelog.md
-
-### 1.2.2. Added
-
-- CHANGELOG.md
-
-## 1.3. [0.2.0] - 2019-10-20
-
-### 1.3.1. Meta
-
-- branch: master
-- description: Write the basic functionality for bumping package file versions and committing with an appropriate message
-
-### 1.3.2. Added
-
-- bump.js
-
-## 1.4. [0.1.0] - 2019-10-19
+## 1.4. [0.2.1] - 2019-10-20
 
 ### 1.4.1. Meta
 
 - branch: master
-- description: start project to create an automated flow for creating new releases for my node.js projects
+- description: Add changelog.md
 
 ### 1.4.2. Added
+
+- CHANGELOG.md
+
+## 1.5. [0.2.0] - 2019-10-20
+
+### 1.5.1. Meta
+
+- branch: master
+- description: Write the basic functionality for bumping package file versions and committing with an appropriate message
+
+### 1.5.2. Added
+
+- bump.js
+
+## 1.6. [0.1.0] - 2019-10-19
+
+### 1.6.1. Meta
+
+- branch: master
+- description: start project to create an automated flow for creating new releases for my node.js projects
+
+### 1.6.2. Added
 
 - .gitignore
 - LICENSE
