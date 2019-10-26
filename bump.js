@@ -5,6 +5,8 @@ const path = require('path');
 const { EOL } = require('os');
 const c_p = require('child_process');
 
+const chalk = require('chalk');
+
 const strategy = process.argv[2];
 const message = process.argv[3];
 const cwd = process.cwd();
@@ -58,7 +60,7 @@ const woohoo = '🎉';
 const shipped = '🚢';
 
 const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${
-  isMajor() ? `${shipped} ${woohoo}` : woohoo
+  isMajor() ? `${shipped}  ${woohoo}` : woohoo
 }`;
 
 const newPackageJson = oldPackageJson;
@@ -86,10 +88,19 @@ function commitBump() {
   c_p.execSync(`git commit -m "${rcCommit}"`, { encoding: 'utf8' });
 }
 
+function confirm() {
+  console.log(chalk`
+{rgb(237, 112, 50) 🍑 : Successfully {underline ${strategy}} bumped version to {underline ${newVersionAsString}} with the commit message:
+
+"${rcCommit} "
+}`);
+}
+
 function bump() {
   updatePackageFiles();
   addPackages();
   commitBump();
+  confirm();
 }
 
 bump();
