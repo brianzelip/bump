@@ -86,10 +86,17 @@ function commitBump() {
   c_p.execSync(`git commit -m "${rcCommit}"`, { encoding: 'utf8' });
 }
 
+function confirm() {
+  console.log(
+    `\n🍑  Successfully ${strategy} bumped version to ${newVersionAsString} with the commit message:\n\n${rcCommit}`
+  );
+}
+
 function bump() {
   updatePackageFiles();
   addPackages();
   commitBump();
+  confirm();
 }
 
 bump();
