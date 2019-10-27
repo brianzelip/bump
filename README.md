@@ -8,16 +8,42 @@ Automate new releases for my node.js projects by:
 ## Install
 
 ```bash
-> npm i @bzelip/bump
+> npm install --global @bzelip/bump
 ```
 
 ## API
 
 ```bash
-> node $PATH_TO_bump.js [major || minor || patch] "$MSG"
+> bump $TYPE "$MSG"
 ```
 
-### Assumptions:
+<dl>
+  <dt><code>TYPE</code></dt>
+  <dd>string; one of the following strings: <code>major</code>, <code>minor</code>, <code>patch</code>
+  </dd>
+  <dt><code>MSG</code></dt>
+  <dd>string</dd>
+</dl>
+
+### Example
+
+#### Input
+
+```bash
+# @v0.4.0
+
+> bump minor "create custom slider"
+```
+
+#### Output
+
+```bash
+🍑 : Successfully minor bumped version to 0.5.0 with the commit message:
+
+"package*: v0.5.0 Bump minor for create custom slider 🎉 "
+```
+
+### Assumptions
 
 - your project is git tracked
 - you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
