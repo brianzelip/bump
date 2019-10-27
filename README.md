@@ -22,9 +22,9 @@ Automate new releases for my node.js projects by:
   <dd><em>The type of version bump.</em></dd>
   <dd>String; possible options: 
   
-  - <code>major</code>
-  - <code>minor</code>
-  - <code>patch</code>
+  - <code>major</code> or <code>m</code>
+  - <code>minor</code> or <code>n</code>
+  - <code>patch</code> or <code>p</code>
 
   </dd>
   <dt><code>MSG</code></dt>
