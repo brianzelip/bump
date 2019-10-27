@@ -5,7 +5,7 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## 1.1. [1.0.0] - 2019-10-2
+## 1.1. Unreleased
 
 ### 1.1.1. Meta
 
@@ -22,7 +22,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [ ] add TODO section, include:
     - add the ability to add tag, which means set some flags, which means adjust bump.js to allow for setting flags
 - bump.js
-  - [ ] add a console.log() of the generated commit message for user feedback, instead of just dropping the user off at their prompt with no evidence that anything happend until the user `git log`s or `git status`es.
+  - [x] add a console.log() of the generated commit message for user feedback, instead of just dropping the user off at their prompt with no evidence that anything happend until the user `git log`s or `git status`es.
+  - [ ] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
 
 ## 1.2. [0.4.0] - 2019-10-25
 
