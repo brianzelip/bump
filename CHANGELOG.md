@@ -15,8 +15,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 1.1.2. Updated
 
 - readme
-  - [ ] add global install
-  - [ ] update references ()
+  - [x] add global install
+  - [x] update references ()
     - https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages
     - https://docs.npmjs.com/files/package.json.html
   - [ ] add TODO section, include:
