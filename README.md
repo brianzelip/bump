@@ -19,10 +19,17 @@ Automate new releases for my node.js projects by:
 
 <dl>
   <dt><code>TYPE</code></dt>
-  <dd>string; one of the following strings: <code>major</code>, <code>minor</code>, <code>patch</code>
+  <dd><em>The type of version bump.</em></dd>
+  <dd>String; possible options: 
+  
+  - <code>major</code>
+  - <code>minor</code>
+  - <code>patch</code>
+
   </dd>
   <dt><code>MSG</code></dt>
-  <dd>string</dd>
+  <dd><em>The content to append to the git commit message.</em></dd>
+  <dd>String</dd>
 </dl>
 
 ### Example
