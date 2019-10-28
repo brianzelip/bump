@@ -25,6 +25,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - [x] add a console.log() of the generated commit message for user feedback, instead of just dropping the user off at their prompt with no evidence that anything happend until the user `git log`s or `git status`es.
   - [ ] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
 
+## [v0.5.0] - 2019-10-27
+
+### Meta
+
+- branch: yargs
+- description: power the bump CLI with [yargs](http://yargs.js.org/)
+
+### Added
+
+- yargs dependency
+
+### Update
+
+- bump.js:
+  -
+
 ## 1.2. [0.4.0] - 2019-10-25
 
 ### 1.2.1. Meta
