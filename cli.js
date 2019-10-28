@@ -1,107 +1,66 @@
-#!/usr/bin/env node
+// const yargs = require('yargs');
 
-const fs = require('fs');
-const path = require('path');
-const { EOL } = require('os');
-const c_p = require('child_process');
+// const message = yargs => {
+//   yargs.positional('message', {
+//     alias: ['m', 'msg'],
+//     describe:
+//       'a string that describes the reason for the version bump, to be appended to the generated commit message',
+//     type: 'string'
+//   });
+// };
 
-const yargs = require('yargs');
-const chalk = require('chalk');
+// const argv = yargs(['--info'])
+//   .scriptName('bump')
+//   .help('info')
+//   .command(
+//     ['major <message>', 'M <message>'],
+//     "Bump the version's major number, set the minor and patch numbers to zero, and append message to the generated commit message.",
+//     yargs => {
+//       yargs.positional('message', {
+//         alias: ['m', 'msg'],
+//         describe:
+//           'a string that describes the reason for the version bump, to be appended to the generated commit message',
+//         type: 'string'
+//       });
+//     }
+//   )
+//   .command(
+//     ['minor <message>', 'N <message>'],
+//     "Bump the version's minor number, set the patch number to zero, and append message to the generated commit message.",
+//     yargs => {
+//       yargs.positional('message', {
+//         alias: ['m', 'msg'],
+//         describe:
+//           'a string that describes the reason for the version bump, to be appended to the generated commit message',
+//         type: 'string'
+//       });
+//     }
+//   )
+//   .command(
+//     ['patch <message>', 'P <message>'],
+//     "Bump the version's patch number, and append message to the generated commit message.",
+//     yargs => {
+//       yargs.positional('message', {
+//         alias: ['m', 'msg'],
+//         describe:
+//           'a string that describes the reason for the version bump, to be appended to the generated commit message',
+//         type: 'string'
+//       });
+//     }
+//   ).argv;
 
-const strategy = process.argv[2];
-const message = process.argv[3];
-const cwd = process.cwd();
-const pathToPackage = path.join(cwd, 'package.json');
-const pathToPackageLock = path.join(cwd, 'package-lock.json');
+// console.log(argv);
 
-const oldPackageJson = JSON.parse(fs.readFileSync(pathToPackage));
-const oldPackageLockJson = JSON.parse(fs.readFileSync(pathToPackageLock));
-
-const oldVersionAsString = JSON.parse(fs.readFileSync(pathToPackage)).version;
-
-const oldVersionAsArray = oldVersionAsString
-  .split('.')
-  .map(number => Number(number));
-
-function isMajor() {
-  return strategy === 'm' || strategy === 'major';
-}
-
-function strategyArray() {
-  if (strategy === 'm' || strategy === 'major') {
-    return ['increase', 'reset', 'reset'];
+const argv = require('yargs')('run --help').command(
+  'run <port> <guid>',
+  'run the server',
+  yargs => {
+    yargs.positional('message', {
+      alias: ['m', 'msg'],
+      describe:
+        'a string that describes the reason for the version bump, to be appended to the generated commit message',
+      type: 'string'
+    });
   }
-  if (strategy === 'n' || strategy === 'minor') {
-    return ['same', 'increase', 'reset'];
-  }
-  if (strategy === 'p' || strategy === 'patch') {
-    return ['same', 'same', 'increase'];
-  }
-  return undefined;
-}
-
-function transform(action, num) {
-  return action === 'reset'
-    ? 0
-    : action === 'increase'
-    ? num + 1
-    : action === 'same'
-    ? num
-    : undefined;
-}
-
-const newVersionAsArray = strategyArray().map((action, index) => {
-  return transform(action, oldVersionAsArray[index]);
-});
-
-const newVersionAsString = newVersionAsArray.join('.');
-
-const filesChanged = 'package*';
-const woohoo = '🎉';
-const shipped = '🚢';
-
-const rcCommit = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${
-  isMajor() ? `${shipped}  ${woohoo}` : woohoo
-}`;
-
-const newPackageJson = oldPackageJson;
-const newPackageLockJson = oldPackageLockJson;
-
-newPackageJson.version = newVersionAsString;
-newPackageLockJson.version = newVersionAsString;
-
-function updatePackageFiles() {
-  fs.writeFileSync(
-    pathToPackage,
-    `${JSON.stringify(newPackageJson, null, 2)}${EOL}`
-  );
-  fs.writeFileSync(
-    pathToPackageLock,
-    `${JSON.stringify(newPackageLockJson, null, 2)}${EOL}`
-  );
-}
-
-function addPackages() {
-  c_p.execSync(`git add package*`, { encoding: 'utf8' });
-}
-
-function commitBump() {
-  c_p.execSync(`git commit -m "${rcCommit}"`, { encoding: 'utf8' });
-}
-
-function confirm() {
-  console.log(chalk`
-{rgb(237, 112, 50) 🍑 : Successfully {underline ${strategy}} bumped version to {underline ${newVersionAsString}} with the commit message:
-
-"${rcCommit} "
-}`);
-}
-
-function bump() {
-  updatePackageFiles();
-  addPackages();
-  commitBump();
-  confirm();
-}
-
-bump();
+).argv;
+console.log(argv);
