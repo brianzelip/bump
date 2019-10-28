@@ -89,3 +89,4 @@ My current release protocol includes:
 5. [node.os.EOL](https://nodejs.org/api/os.html#os_os_eol)
 6. [package.json](https://docs.npmjs.com/files/package.json.html)
 7. [publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages)
+8. [How to use yargs](https://www.youtube.com/watch?v=Lz485E65ce4)
