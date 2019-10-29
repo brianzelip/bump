@@ -52,9 +52,9 @@ const yargs = require('yargs');
 //   )
 //   .wrap(yargs.terminalWidth()).argv;
 
-const argv = yargs.scriptName('bump').command(
+const argv = yargs.scriptName('bump').usage(
   '$0 <strategy> <message>',
-  'Bump your version and provide a message about the bump',
+  'Bump your version given a strategy, and add content to a git commit message describing the bump.',
   yargs => {
     yargs
       .positional('strategy', {
