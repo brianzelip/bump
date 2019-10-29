@@ -30,6 +30,7 @@ exports.handler = argv => {
     .split('.')
     .map(number => Number(number));
   const strategy = argv.strategy;
+  const message = argv.message;
 
   // bump strategy
   const bumpRules = {
@@ -55,6 +56,15 @@ exports.handler = argv => {
   const newVersionAsArray = bump(oldVersionAsArray);
   const newVersionAsString = newVersionAsArray.join('.');
 
+  const filesChanged = 'package*';
+  const woohoo = '🎉';
+  const shipped = '🚢';
+
+  const commitMessage = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${
+    strategy === 'major' ? `${shipped}  ${woohoo}` : woohoo
+  }`;
+
   // console.log('STRATEGY HANDLER fn', argv.strategy);
-  console.log('NEWVERSION!!!!!:::::', newVersionAsArray);
+  console.log('newVersionAsArray:', newVersionAsArray);
+  console.log('commitMessage:', commitMessage);
 };
