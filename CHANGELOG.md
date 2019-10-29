@@ -35,11 +35,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added
 
 - yargs dependency
+- strategy.js: command module for handling the bumping logic
+- undo.js: command module for handling the undo logic
 
 ### Update
 
-- bump.js:
-  -
+- ## bump.js:
 
 ## 1.2. [0.4.0] - 2019-10-25
 
