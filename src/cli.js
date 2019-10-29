@@ -13,9 +13,9 @@ Bump your package.json and package-lock.json files, and commit the change with a
   .command(
     '$0 <strategy> <message>',
     'Bump your version based on a strategy, and include a description of the reason for the bump in the generated commit message.',
-    require('./strategy.js')
+    require('./modules/strategy.js')
   )
-  .command(['undo', 'u'], 'undo the last bump', require('./undo.js'))
+  .command(['undo', 'u'], 'undo the last bump', require('./modules/undo.js'))
   .alias('help', 'h')
   .alias('version', 'v').argv;
 
