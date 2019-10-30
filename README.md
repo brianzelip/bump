@@ -2,7 +2,7 @@
 
 Automate new releases for node.js projects on the command line.
 
-A *new release* is defined as:
+A _new release_ is defined as:
 
 1. An incremental increase to the version property in the package.json and package-lock.json files.
 2. A commit of the two json files with a descriptive message about the reason for the version bump.
@@ -14,9 +14,9 @@ A *new release* is defined as:
 > npm install --global @bzelip/bump
 ```
 
-## Usage
+## Commands
 
-### Bump
+### bump
 
 Bump your version based on a strategy, and include a description of the reason for the bump in the generated commit message.
 
@@ -29,18 +29,19 @@ bump <strategy> <message>
   <dd><em>strategy for the version bump</em></dd>
   <dd>Choices:
 
-  - <code>major</code>
-  - <code>minor</code>
-  - <code>patch</code>
-  </dd>
+- <code>major</code>
+- <code>minor</code>
+- <code>patch</code>
 
-  <dt><code>message</code> (string, required)</dt>
-  <dd><em>description of the reason for the version bump, to be appended to the generated commit message</em></dd>
-</dl>
+    </dd>
 
-### Example
+    <dt><code>message</code> (string, required)</dt>
+    <dd><em>description of the reason for the version bump, to be appended to the generated commit message</em></dd>
+  </dl>
 
-#### Input
+#### Example
+
+##### Input
 
 ```bash
 # @v0.4.0
@@ -48,7 +49,7 @@ bump <strategy> <message>
 > bump minor "create custom slider"
 ```
 
-#### Output
+##### Output
 
 ```bash
 🍑 : Successfully minor bumped version to 0.5.0 with the commit message:
@@ -58,23 +59,26 @@ bump <strategy> <message>
 
 **Note** `bump` does not push, it only commits locally.
 
-### Undo
+---
 
-Undo a bump.
+### undo
+
+Undo running `bump <strategy> <message>`.
 
 ```bash
 bump undo
 ```
 
-**Note** `bump undo` is basically an alias for:
+This command is an alias for running:
+
 ```bash
 git reset HEAD~
 git checkout -- package*
 ```
 
-Be sure to only use `bump undo` immediately after `bump <strategy> <message>` to have the desired action.
+**Note** Be sure to only use `bump undo` immediately after `bump <strategy> <message>` to have the desired action.
 
-### Assumptions
+## Assumptions
 
 - your project is git tracked
 - you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
@@ -112,3 +116,4 @@ My current release protocol includes:
 6. [package.json](https://docs.npmjs.com/files/package.json.html)
 7. [publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages)
 8. [How to use yargs](https://www.youtube.com/watch?v=Lz485E65ce4)
+9. [My accepted answer to a yargs question on !SO](https://stackoverflow.com/a/58606424/2145103)
