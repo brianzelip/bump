@@ -89,6 +89,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - [x] Install
     - [x] Use
   - [x] update README w/ references
+    - [ ] update api docs
+      - [ ] help menu stuff
+      - [ ] prose
+    - [ ] update the list of constraints of the app (the assumptions, and explicitly write what it doesn't do)
   - [x] published on npm
     - [x] rename module with scope
     - [x] update metadata (author, keywords, bugs, repository)
@@ -97,6 +101,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 1.5.2. Updated
 
 - changelog: Add notes on references that helped me reach v1.0.0
+- readme:
 
 ## 1.6. [0.2.1] - 2019-10-20
 
