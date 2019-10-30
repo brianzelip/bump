@@ -39,10 +39,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - strategy.js: command module for handling the bumping logic
 - undo.js: command module for handling the undo logic
 
-### 1.2.3. Update
+### 1.2.3. Updated
 
 - bump.js: refactor around yargs:
-  - use the yargs docs heavily to define the bump cli application
+  - use the yargs docs heavily to define the bump cli application, including:
+    - the default `bump <strategy> <message>` command that takes two required positional arguments
+    - the `bump undo` command that undoes that prior bump
   - define the command builder and handlers in the src/modules/ directory
 
 ## 1.3. [0.4.0] - 2019-10-25
