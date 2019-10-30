@@ -1,9 +1,9 @@
 {
   "name": "@bzelip/bump",
-  "version": "0.4.0",
-  "description": "Automate new releases for my node.js projects",
-  "main": "./bump.js",
-  "bin": "./bump.js",
+  "version": "0.5.0",
+  "description": "Automate the version bumping and git committing for new releases of node.js projects",
+  "main": "./src/bump.js",
+  "bin": "./src/bump.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/brianzelip/bump.git"
@@ -18,6 +18,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "chalk": "^2.4.2"
+    "chalk": "^2.4.2",
+    "yargs": "^14.2.0"
   }
 }

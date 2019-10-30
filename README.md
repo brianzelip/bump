@@ -8,21 +8,62 @@ Automate new releases for my node.js projects by:
 ## Install
 
 ```bash
-> npm i @bzelip/bump
+> npm install --global @bzelip/bump
 ```
 
 ## API
 
 ```bash
-> node $PATH_TO_bump.js [major || minor || patch] "$MSG"
+> bump $TYPE "$MSG"
 ```
 
-### Assumptions:
+<dl>
+  <dt><code>TYPE</code></dt>
+  <dd><em>The type of version bump.</em></dd>
+  <dd>String; possible options: 
+  
+  - <code>major</code> or <code>m</code>
+  - <code>minor</code> or <code>n</code>
+  - <code>patch</code> or <code>p</code>
+
+  </dd>
+  <dt><code>MSG</code></dt>
+  <dd><em>The content to append to the git commit message.</em></dd>
+  <dd>String</dd>
+</dl>
+
+### Example
+
+#### Input
+
+```bash
+# @v0.4.0
+
+> bump minor "create custom slider"
+```
+
+#### Output
+
+```bash
+🍑 : Successfully minor bumped version to 0.5.0 with the commit message:
+
+"package*: v0.5.0 Bump minor for create custom slider 🎉 "
+```
+
+**Note** `bump` does not push, it only commits locally.
+
+### Assumptions
 
 - your project is git tracked
 - you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
 - your current working directory is the root diretory of the project you wish to bump
 - the root directory of the project you wish to bump includes both package.json and package-lock.json files
+
+## TODO
+
+- [x] implement yargs
+- [ ] add the ability to add tag
+- [x] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
 
 ## My release protocol
 
@@ -46,3 +87,6 @@ My current release protocol includes:
 3. [node.child_process.exec code examples](https://nodejs.org/docs/v8.1.4/api/child_process.html#child_process_child_process_exec_command_options_callback)
 4. [How to append to New Line in Node.js](https://stackoverflow.com/a/32658744/2145103)
 5. [node.os.EOL](https://nodejs.org/api/os.html#os_os_eol)
+6. [package.json](https://docs.npmjs.com/files/package.json.html)
+7. [publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages)
+8. [How to use yargs](https://www.youtube.com/watch?v=Lz485E65ce4)
