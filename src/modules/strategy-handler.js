@@ -3,6 +3,7 @@ const fs = require('fs');
 const path = require('path');
 const { EOL } = require('os');
 const c_p = require('child_process');
+const chalk = require('chalk');
 
 exports.handler = argv => {
   // set up data
@@ -49,6 +50,48 @@ exports.handler = argv => {
   const commitMessage = `${filesChanged}: v${newVersionAsString} Bump ${strategy} for ${message} ${
     strategy === 'major' ? `${shipped}  ${woohoo}` : woohoo
   }`;
+
+  const newPackageJson = oldPackageJson;
+  const newPackageLockJson = oldPackageLockJson;
+
+  newPackageJson.version = newVersionAsString;
+  newPackageLockJson.version = newVersionAsString;
+
+  function bumpPackageFiles() {
+    fs.writeFileSync(
+      pathToPackage,
+      `${JSON.stringify(newPackageJson, null, 2)}${EOL}`
+    );
+    fs.writeFileSync(
+      pathToPackageLock,
+      `${JSON.stringify(newPackageLockJson, null, 2)}${EOL}`
+    );
+  }
+
+  function gitAddPackages() {
+    c_p.execSync(`git add package*`, { encoding: 'utf8' });
+  }
+
+  function gitCommit() {
+    c_p.execSync(`git commit -m "${commitMessage}"`, { encoding: 'utf8' });
+  }
+
+  function confirm() {
+    console.log(chalk`
+{rgb(237, 112, 50) 🍑 : Successfully {underline ${strategy}} bumped version to {underline ${newVersionAsString}} with the commit message:
+
+"${commitMessage} "
+}`);
+  }
+
+  function write() {
+    bumpPackageFiles();
+    gitAddPackages();
+    gitCommit();
+    confirm();
+  }
+
+  write();
 
   // console.log('STRATEGY HANDLER fn', argv.strategy);
   console.log('newVersionAsArray:', newVersionAsArray);
