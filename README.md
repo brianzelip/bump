@@ -61,9 +61,9 @@ Automate new releases for my node.js projects by:
 
 ## TODO
 
-- [ ] implement yargs
+- [x] implement yargs
 - [ ] add the ability to add tag
-- [ ] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
+- [x] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
 
 ## My release protocol
 
