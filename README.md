@@ -13,8 +13,22 @@ Automate new releases for my node.js projects by:
 
 ## API
 
-```bash
-> bump $TYPE "$MSG"
+```txt
+Commands:
+  bump <strategy> <message>     Bump your version based on a strategy, and
+                                include a description of the reason for the bump
+                                in the generated commit message.       [default]
+  bump undo                     undo the last bump                  [aliases: u]
+
+Positionals:
+  strategy  strategy for the version bump
+                                   [string] [choices: "major", "minor", "patch"]
+  message   description of the reason for the version bump, to be appended to
+            the generated commit message                                [string]
+
+Options:
+  --help, -h     Show help                                             [boolean]
+  --version, -v  Show version number                                   [boolean]
 ```
 
 <dl>
