@@ -23,7 +23,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     - add the ability to add tag, which means set some flags, which means adjust bump.js to allow for setting flags
 - bump.js
   - [x] add a console.log() of the generated commit message for user feedback, instead of just dropping the user off at their prompt with no evidence that anything happend until the user `git log`s or `git status`es.
-  - [ ] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
+  - [x] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
 
 ## [v0.5.0] - 2019-10-27
 
