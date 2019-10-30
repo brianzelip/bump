@@ -18,5 +18,3 @@ Bump your package.json and package-lock.json files, and commit the change with a
   .command(['undo', 'u'], 'undo the last bump', require('./modules/undo.js'))
   .alias('help', 'h')
   .alias('version', 'v').argv;
-
-console.log(argv);
