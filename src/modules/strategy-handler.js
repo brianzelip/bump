@@ -92,8 +92,4 @@ exports.handler = argv => {
   }
 
   write();
-
-  // console.log('STRATEGY HANDLER fn', argv.strategy);
-  console.log('newVersionAsArray:', newVersionAsArray);
-  console.log('commitMessage:', commitMessage);
 };
