@@ -17,6 +17,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### 1.2.2. Updated
 
 - readme.md: improve docs for shipping mvp
+- undo.js: remove console.log() debugger
 
 ## 1.3. [v0.5.1] - 2019-10-30
 
