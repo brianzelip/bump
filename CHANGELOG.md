@@ -18,6 +18,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - readme.md: improve docs for shipping mvp
 - undo.js: remove console.log() debugger
+- strategy-handler.js: remove debuggers
 
 ## 1.3. [v0.5.1] - 2019-10-30
 
