@@ -14,7 +14,14 @@ A _new release_ is defined as:
 > npm install --global @bzelip/bump
 ```
 
-## Commands
+This will install bump globally so that it can be run from the command line.
+
+## Use
+
+There are two main commands:
+
+1. `bump <strategy> <message>`
+2. `bump undo`
 
 ### bump
 
@@ -44,7 +51,7 @@ bump <strategy> <message>
 ##### Input
 
 ```bash
-# @v0.4.0
+# current version 0.4.0
 
 > bump minor "create custom slider"
 ```
@@ -54,16 +61,14 @@ bump <strategy> <message>
 ```bash
 🍑 : Successfully minor bumped version to 0.5.0 with the commit message:
 
-"package*: v0.5.0 Bump minor for create custom slider 🎉 "
+"package*: v0.5.0 Bump minor for create custom slider 🎉"
 ```
 
 **Note** `bump` does not push, it only commits locally.
 
----
-
 ### undo
 
-Undo running `bump <strategy> <message>`.
+Undo a bump.
 
 ```bash
 bump undo
@@ -82,8 +87,7 @@ git checkout -- package*
 
 - your project is git tracked
 - you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
-- your current working directory is the root diretory of the project you wish to bump
-- the root directory of the project you wish to bump includes both package.json and package-lock.json files
+- your current working directory includes both package.json and package-lock.json files
 
 ## TODO
 
