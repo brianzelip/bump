@@ -26,6 +26,4 @@ exports.handler = argv => {
   }
 
   write();
-
-  console.log('UNDO HANDLER fn', argv);
 };

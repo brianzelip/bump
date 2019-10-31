@@ -1,9 +1,12 @@
 # Bump 🍑
 
-Automate new releases for my node.js projects by:
+Automate new releases for node.js projects on the command line.
 
-- bumping the version property in package\*json
-- committing with appropriate message
+A _new release_ is defined as:
+
+1. An incremental increase to the version property in the package.json and package-lock.json files.
+2. A commit of the two json files with a descriptive message about the reason for the version bump.
+3. The optional creation of a tag with a descriptive message.
 
 ## Install
 
@@ -11,67 +14,80 @@ Automate new releases for my node.js projects by:
 > npm install --global @bzelip/bump
 ```
 
-## API
+This will install bump globally so that it can be run from the command line.
 
-```txt
-Commands:
-  bump <strategy> <message>     Bump your version based on a strategy, and
-                                include a description of the reason for the bump
-                                in the generated commit message.       [default]
-  bump undo                     undo the last bump                  [aliases: u]
+## Use
 
-Positionals:
-  strategy  strategy for the version bump
-                                   [string] [choices: "major", "minor", "patch"]
-  message   description of the reason for the version bump, to be appended to
-            the generated commit message                                [string]
+There are two main commands:
 
-Options:
-  --help, -h     Show help                                             [boolean]
-  --version, -v  Show version number                                   [boolean]
+1. `bump <strategy> <message>`
+2. `bump undo`
+
+### bump
+
+Bump your version based on a strategy, and include a description of the reason for the bump in the generated commit message.
+
+```bash
+bump <strategy> <message>
 ```
 
 <dl>
-  <dt><code>TYPE</code></dt>
-  <dd><em>The type of version bump.</em></dd>
-  <dd>String; possible options: 
-  
-  - <code>major</code> or <code>m</code>
-  - <code>minor</code> or <code>n</code>
-  - <code>patch</code> or <code>p</code>
+  <dt><code>strategy</code> (string, required)</dt>
+  <dd><em>strategy for the version bump</em></dd>
+  <dd>Choices:
 
-  </dd>
-  <dt><code>MSG</code></dt>
-  <dd><em>The content to append to the git commit message.</em></dd>
-  <dd>String</dd>
-</dl>
+- <code>major</code>
+- <code>minor</code>
+- <code>patch</code>
 
-### Example
+    </dd>
 
-#### Input
+    <dt><code>message</code> (string, required)</dt>
+    <dd><em>description of the reason for the version bump, to be appended to the generated commit message</em></dd>
+  </dl>
+
+#### Example
+
+##### Input
 
 ```bash
-# @v0.4.0
+# current version 0.4.0
 
 > bump minor "create custom slider"
 ```
 
-#### Output
+##### Output
 
 ```bash
 🍑 : Successfully minor bumped version to 0.5.0 with the commit message:
 
-"package*: v0.5.0 Bump minor for create custom slider 🎉 "
+"package*: v0.5.0 Bump minor for create custom slider 🎉"
 ```
 
 **Note** `bump` does not push, it only commits locally.
 
-### Assumptions
+### undo
+
+Undo a bump.
+
+```bash
+bump undo
+```
+
+This command is an alias for running:
+
+```bash
+git reset HEAD~
+git checkout -- package*
+```
+
+**Note** Be sure to only use `bump undo` immediately after `bump <strategy> <message>` to have the desired action.
+
+## Assumptions
 
 - your project is git tracked
 - you are following [Semantic Versioning](https://semver.org/spec/v2.0.0.html)
-- your current working directory is the root diretory of the project you wish to bump
-- the root directory of the project you wish to bump includes both package.json and package-lock.json files
+- your current working directory includes both package.json and package-lock.json files
 
 ## TODO
 
@@ -104,3 +120,4 @@ My current release protocol includes:
 6. [package.json](https://docs.npmjs.com/files/package.json.html)
 7. [publishing scoped public packages](https://docs.npmjs.com/creating-and-publishing-scoped-public-packages#publishing-scoped-public-packages)
 8. [How to use yargs](https://www.youtube.com/watch?v=Lz485E65ce4)
+9. [My accepted answer to a yargs question on !SO](https://stackoverflow.com/a/58606424/2145103)
