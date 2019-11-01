@@ -1,6 +1,6 @@
 {
   "name": "@bzelip/bump",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automate the version bumping and git committing for new releases of node.js projects",
   "main": "./src/bump.js",
   "bin": "./src/bump.js",
