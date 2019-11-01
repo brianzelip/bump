@@ -18,6 +18,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - readme.md
   - add version badge from [shileds.io](https://shields.io)
+  - cleanup TODO section
+  - add tests TODO
   - make bash scripts more consistent
   - edit bump output example
 
