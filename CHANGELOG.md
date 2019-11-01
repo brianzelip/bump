@@ -14,6 +14,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - branch: cleanup
 - description: cleanup the readme
 
+### 1.2.2. Updated
+
+- readme.md
+  - add version badge from [shileds.io](https://shields.io)
+  - make bash scripts more consistent
+  - edit bump output example
+
 ## 1.3. [1.0.0] - 2019-10-31
 
 ### 1.3.1. Meta
