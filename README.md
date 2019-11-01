@@ -94,9 +94,8 @@ git checkout -- package*
 
 ## TODO
 
-- [x] implement yargs
-- [ ] add the ability to add tag
-- [x] add undo function that basically runs `git reset HEAD~ && git checkout -- package*`
+- [ ] add the create tag with message option
+- [ ] add tests
 
 ## My release protocol
 
