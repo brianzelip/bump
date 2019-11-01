@@ -11,7 +11,7 @@ A _new release_ is defined as:
 ## Install
 
 ```bash
-> npm install --global @bzelip/bump
+npm install --global @bzelip/bump
 ```
 
 This will install bump globally so that it can be run from the command line.
@@ -53,13 +53,13 @@ bump <strategy> <message>
 ```bash
 # current version 0.4.0
 
-> bump minor "create custom slider"
+bump minor "create custom slider"
 ```
 
 ##### Output
 
 ```bash
-🍑 : Successfully minor bumped version to 0.5.0 with the commit message:
+🍑: Successfully minor bumped version to 0.5.0 with the commit message:
 
 "package*: v0.5.0 Bump minor for create custom slider 🎉"
 ```
@@ -78,6 +78,7 @@ This command is an alias for running:
 
 ```bash
 git reset HEAD~
+
 git checkout -- package*
 ```
 
