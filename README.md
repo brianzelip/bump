@@ -1,5 +1,7 @@
 # Bump 🍑
 
+![npm version](https://img.shields.io/npm/v/@bzelip/bump)
+
 Automate new releases for node.js projects on the command line.
 
 A _new release_ is defined as:
