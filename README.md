@@ -1,6 +1,6 @@
 # Bump 🍑
 
-![npm version](https://img.shields.io/npm/v/@bzelip/bump)
+![GitHub package.json version](https://img.shields.io/github/package-json/v/brianzelip/bump)
 
 Automate new releases for node.js projects on the command line.
 
